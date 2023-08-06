@@ -58,4 +58,5 @@ yum install dialog
 | Dependencies |  Required version | One Sentence Description | Corresponding Scripts 
 | --- | --- | --- | --- 
 | dialog |  1.3 | display dialog boxes from shell scripts | ssh_tools/ssh_login_helper.bash
+| kubectl |  any |The k8s core management commands that relied upon by the tool gui_kubectl script | k8s_tools/gui_kubectl/gui_kubectl.bash
 
