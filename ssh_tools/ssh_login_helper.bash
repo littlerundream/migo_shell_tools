@@ -1,5 +1,69 @@
 #!/bin/bash
- 
+#
+# SCRIPT: ssh_log_helper.bash
+# AUTHOR: Luke Zhang
+# DATE: 08/01/2023
+# REV: 0.0.1
+#
+# PURPOSE: This script help assisted SSH login to other servers
+#
+# REV LIST:
+#
+#         08/01/2023 - Luke Zhang
+#         Initial the script.
+#
+#######################################################################
+#
+# NOTE: To output the timing to a file use the following syntax:
+#
+#    batch_process_conflicts.sh [old|new] > output_file_name 2>&1
+#
+#######################################################################
+#
+# set -n # Uncomment to check command syntax without any execution
+# set -x # Uncomment to debug this script
+#
+#######################################################################
+#
+# Usage Examples
+#
+# Test environment Ansible Server to other test servers 
+# for password-free login method
+# 1. Enable port 2222
+#
+# Edit sshd configuration:
+# ```bash
+# sudo vim /etc/ssh/sshd_config
+# ```
+#
+# Add ports:
+# ```bash
+# Port 22
+# Port 2222
+# ```
+#
+# Restart sshd: sudo systemctl reload sshd
+# test and verify `telnet target_ip 2222`
+#
+# 2. Account Configuration
+#
+# Configuring Secure Access from Source IP → Destination IP
+#
+# cat > /home/migo/.ssh/authorized_keys <<eof
+# [To configure the source server ssh public key for secure logins]
+# eof
+#
+# ```
+# chmod 600 /home/migo/.ssh/authorized_keys
+# ```
+#
+# 3. Use the login script
+#
+# ```bash
+# bash ssh_login_helper.bash
+# ```
+
+
 items=(01 "server01v-MyWebServer01-192.168.0.1"
        02 "server02v-MyWebServer01-192.168.0.2-port-2200"
        03 "server03v-MyWebServer03-192.168.0.3-port-2222")

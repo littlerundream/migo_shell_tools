@@ -1,0 +1,1 @@
+pods=($(kubectl get deployments -n yxt-app | sed "s/ .*//g" | sort | uniq ))
