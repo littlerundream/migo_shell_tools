@@ -1,0 +1,4 @@
+function quitScript()
+{
+  clear
+}
