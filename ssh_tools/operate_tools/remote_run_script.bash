@@ -38,7 +38,7 @@ function _runOnRemoteServers() {
     server="${ip_port%%:*}"
     port="${ip_port##*:}"
     echo "${START_MSG}: ${server}"
-    if ssh -p ${port} bsafe@${server} "${runCommand}"; then
+    if ssh -p ${port} user@${server} "${runCommand}"; then
       _runSuccess ${server}
     else
       _runFail ${server}

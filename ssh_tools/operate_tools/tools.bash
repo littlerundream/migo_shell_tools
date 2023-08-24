@@ -4,32 +4,20 @@
 source ./util.bash
 # 引入需要的动作脚本
 source ./actions.bash
- 
+
+# 定义菜单显示文字
 items=(
   1 "修改远程服务器上的 host"
   2 "退出程序"
 )
  
-while choice=$(dialog --title "$TITLE" \
-  --menu "请选择要执行的操作" 20 40 20 "${items[@]}" \
-  2>&1 >/dev/tty); do
-  case $choice in
-  1) ACTION="change_hosts" && break ;;
-  2) ACTION="quit_script" && break ;;
+# 定义菜单执行动作
+function mainMenu() {
+  GLOBAL_CHOICE=$1
+  case $GLOBAL_CHOICE in
+  1) GLOBAL_ACTION="change_hosts" && break ;; # 执行某个脚本
+  2) GLOBAL_ACTION="quit_script" && break ;; # 系统中已经存在的动作
   esac
-done
+}
  
-if [ -z "$ACTION" ]; then
-  echo "未选择任何操作！"
-  clear
-else
-  case $ACTION in
-  quit_script)
-    quitScript
-    ;;
-  *)
-    clear
-    bash ./${ACTION}.bash
-    ;;
-  esac
-fi
+openMenu "The operate tool box" "mainMenu" "${items[@]}"
