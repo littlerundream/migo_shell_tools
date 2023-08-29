@@ -17,7 +17,7 @@
 #
 # NOTE: To output the timing to a file use the following syntax:
 #
-#    batch_process_conflicts.sh [old|new] > output_file_name 2>&1
+#    remote_run_script.sh > output_file_name 2>&1
 #
 #######################################################################
 #

@@ -16,7 +16,7 @@
 #
 # NOTE: To output the timing to a file use the following syntax:
 #
-#    batch_process_conflicts.sh [old|new] > output_file_name 2>&1
+#    ssh_log_helper.sh > output_file_name 2>&1
 #
 #######################################################################
 #

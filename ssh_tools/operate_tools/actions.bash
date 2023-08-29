@@ -1,3 +1,4 @@
+# 退出脚本
 function quitScript()
 {
   clear
@@ -5,11 +6,13 @@ function quitScript()
   exit 0 
 }
 
+#本地运行 arthas 调试工具
 function runArthasLocal()
 {
    java -jar ~/arthas-boot.jar `ps axu | grep jar | grep Bootstrap | awk '{print $2}'`
 }
 
+# 检查是否加了锁（用于保护配置）
 function checkTheProtectionLock()
 {
   if [ -f ./.lock ]; then
@@ -18,6 +21,7 @@ function checkTheProtectionLock()
   fi
 }
 
+# 打开菜单
 function openMenu()
 {
   clear
@@ -34,11 +38,13 @@ function openMenu()
   runActionByChoice "$GLOBAL_ACTION" "$GLOBAL_CHOICE"
 }
 
+# 打开子菜单
 function gotoSubItems()
 {
   openMenu "子菜单 $choice"  "subFunc$choice" "${sub_items_${choice}[@]}"
 }
 
+# 执行动作
 function runActionByChoice()
 {
   action=$1

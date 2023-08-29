@@ -19,5 +19,5 @@ function mainMenu() {
   2) GLOBAL_ACTION="quit_script" && break ;; # 系统中已经存在的动作
   esac
 }
- 
+
 openMenu "The operate tool box" "mainMenu" "${items[@]}"

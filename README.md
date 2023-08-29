@@ -13,7 +13,8 @@ This is a collection of shell scripting tools designed to improve the efficiency
 - K8s tools -- This is a set of graphical helper scripts for Kubernetes that automate the generation and execution of common `kubectl` commands.
 - PV/UV statistics -- Analyze the number of hits on your site using the nginx access log.
 - CVS tools -- A collection of tools for CVS commits, conflict handling and file comparisons.
-
+- Monitoring tools -- A collection of widgets for server monitoring.
+- DR tools -- A collection of widgets for server disaster recovery.
 
 ## Requirements
 
