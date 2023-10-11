@@ -1,8 +1,8 @@
-# 创建 hosts 脚本
+# Create the hosts script
 echo -e "$hosts" > hosts
 
 
-# 创建 install-s3fs.yaml 脚本
+# Create the install-s3fs.yaml script
 cat >install-s3fs.yaml <<'END_SCRIPT'
 ---
 - name: Install s3-fuse
@@ -79,10 +79,10 @@ cat >install-s3fs.yaml <<'END_SCRIPT'
         state: present
 END_SCRIPT
 
-#AF 的下载 TOKEN 是使用 AF 用户名和密码, 例如 build-esb:******** 进行 Base64 编码后的结果
+# Generate the download token
 af_download_token=$(echo -n "$af_username:$af_password" | base64)
 
-#执行 ansible-playbook 脚本
+# Run the ansible playbook
 ansible-playbook -i hosts -e "s3_access_key=$s3_access_key" -e "s3_secret_key=$s3_secret_key" \
 -e "s3_bucket_name=$s3_bucket_name" -e "s3_url=$s3_url" -e "af_download_url=$af_download_url" \
 -e "af_download_token=$af_download_token" install-s3fs.yaml
